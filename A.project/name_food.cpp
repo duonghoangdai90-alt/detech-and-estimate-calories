@@ -6,16 +6,17 @@
 #include<string>
 #include<limits>
 
-name_food::name_food(std::vector<std::string> v){};
+Name_food::Name_food(const std::vector<std::string> &initialist):foodlist(initialist){}
 
-void name_food::input_nf(const quantity_food &a, std::vector<std::string> &v) {
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    for (int i = 0; i < a.display(); i++){
-        getline(std::cin,v[i]);
-    }
+void Name_food::setFood(std::vector<std::string> &newlist){
+    this->foodlist = newlist;
 }
-void name_food::display() const{
-    for (auto it = v.begin(); it != v.end(); it++){
-        std::cout<<*it<<std::endl;
+const std::vector<std::string> &Name_food::getFood() const{
+    return foodlist;
+}
+
+void Name_food::display()const{
+    for (auto foodlist : foodlist){
+        std::cout<<"-"<<foodlist<<std::endl;
     }
 }
