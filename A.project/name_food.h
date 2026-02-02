@@ -1,17 +1,21 @@
-#ifndef NAME_FOOD
-#define NAME_FOOD
+#ifndef NAME_FOOD_H
+#define NAME_FOOD_H
 
 #include<string>
 #include<vector>
 
 class quantity_food;
-class name_food{
+
+class Name_food{
 private:
-    std::vector<std::string> v;
+    std::vector<std::string> foodlist;
 public:
-    name_food(std::vector<std::string> v);
-    name_food();
-    void input_nf(const quantity_food&a, std::vector<std::string> &v);
+    explicit Name_food(const::std::vector<std::string> &initialist={});
+
+    void setFood(std::vector<std::string> &newlist);
+    
+    const std::vector<std::string> &getFood() const;
+
     void display() const;
 };
 
